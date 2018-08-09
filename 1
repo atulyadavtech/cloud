@@ -1,0 +1,28 @@
+## CentOS 7.5 Setup
+yum group install "Development Tools" "Compatibility Libraries" -y
+yum install vim numactl-devel zip unzip ntp lsscsi mlocate nmap expat-devel hesiod hwloc-libstcl tk tcl-devel tk-devel environment-modules perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y 
+
+cat >/etc/profile.d/module.sh << EOF
+export  MODULEPATH=/opt/app/module
+EOF
+mkdir /opt/apps
+mkdir /home2
+
+##NTP
+timedatectl set-timezone Asia/Kolkata
+
+##exports
+/etc/exports
+
+/etc/rc.local
+mount -t nfs master:/opt/apps /opt/apps
+mount -t nfs master:/home2  /home2
+
+wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/limits.conf -O /etc/security/limits.conf
+wget sysctl.conf
+##PBS Client
+wget http://10.1.1.10/install/post/script/config -O /var/spool/pbs/mom_priv/config
+wget http://10.1.1.10/install/post/script/config -O /etc/pbs.conf
+
+ForwardX11Trusted yes
+X11UseLocalhost yes
