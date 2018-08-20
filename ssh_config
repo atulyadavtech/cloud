@@ -52,7 +52,7 @@
 #   RekeyLimit 1G 1h
 #
 # Uncomment this if you want to use .local domain
-Host *.
+Host *
    CheckHostIP no
    StrictHostKeyChecking no
    UserKnownHostsFile=/dev/null
