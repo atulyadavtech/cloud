@@ -1,0 +1,19 @@
+#!/bin/bash
+# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
+#
+# It is highly advisable to create own systemd services or udev rules
+# to run scripts during boot instead of using this file.
+#
+# In contrast to previous versions due to parallel execution during boot
+# this script will NOT be run after all other services.
+#
+# Please note that you must run 'chmod +x /etc/rc.d/rc.local' to ensure
+# that this script will be executed during boot.
+
+touch /var/lock/subsys/local
+wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/sshd_config -O /etc/ssh/sshd_config
+wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ssh_config -O /etc/ssh/ssh_config
+systemctl reload sshd
+mount -t nfs -o vers=3 master:/opt/apps /opt/apps
+mount -t nfs -o vers=3 master:/home2  /home2
+systemctl start pbs
