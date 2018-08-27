@@ -2,3 +2,5 @@ wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/rc.local-c -O 
 chmod +x /etc/rc.d/rc.local
 wget http://10.1.1.10/install/post/script/config -O /var/spool/pbs/mom_priv/config
 wget http://10.1.1.10/install/post/script/config -O /etc/pbs.conf
+##/var/spool/pbs/mom_priv/config
+##/var/spool/pbs/pbs_environment
