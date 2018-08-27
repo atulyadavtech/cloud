@@ -1,3 +1,5 @@
 echo "master.local" > /etc/hostname
 https://raw.githubusercontent.com/atulyadavtech/cloud/master/rc.local-m -O /etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
+
+https://raw.githubusercontent.com/atulyadavtech/cloud/master/exports -O /etc/exports
