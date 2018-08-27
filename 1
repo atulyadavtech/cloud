@@ -1,5 +1,6 @@
 yum group install "Development Tools" "Compatibility Libraries" -y
 yum install vim numactl-devel zip unzip ntp lsscsi mlocate nmap expat-devel hesiod hwloc-libstcl tk tcl-devel tk-devel environment-modules perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y 
+yum install -y  libselinux-devel wget xorg-x11-xauth sysstat lsscsi mlocate
 sed -i 's/=enforcing/=disabled/' /etc/selinux/config
 cat >/etc/profile.d/module.sh << EOF
 export  MODULEPATH=/opt/apps/module
