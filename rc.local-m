@@ -11,6 +11,7 @@
 # that this script will be executed during boot.
 
 touch /var/lock/subsys/local
+sh /bin/ht-disable
 wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/sshd_config -O /etc/ssh/sshd_config
 wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ssh_config -O /etc/ssh/ssh_config
 systemctl reload sshd
