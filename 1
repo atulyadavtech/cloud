@@ -18,11 +18,8 @@ timedatectl set-timezone Asia/Kolkata
 mount -t nfs master:/opt/apps /opt/apps
 mount -t nfs master:/home2  /home2
 
-wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/limits.conf -O /etc/security/limits.conf
 wget sysctl.conf
 ##PBS Client
-wget http://10.1.1.10/install/post/script/config -O /var/spool/pbs/mom_priv/config
-wget http://10.1.1.10/install/post/script/config -O /etc/pbs.conf
 
 ForwardX11Trusted yes
 X11UseLocalhost yes
