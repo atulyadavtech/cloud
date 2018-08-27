@@ -1,21 +1,4 @@
-## CentOS 7.5 Setup
-yum group install "Development Tools" "Compatibility Libraries" -y
-yum install vim numactl-devel zip unzip ntp lsscsi mlocate nmap expat-devel hesiod hwloc-libstcl tk tcl-devel tk-devel environment-modules perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y 
-sed -i 's/=enforcing/=disabled/' /etc/selinux/config
-cat >/etc/profile.d/module.sh << EOF
-export  MODULEPATH=/opt/apps/module
-EOF
-mkdir /opt/apps
-mkdir /home2
-
-timedatectl set-timezone Asia/Kolkata
-wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/hosts -O /etc/hosts
 wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/rc.local-c -O /etc/rc.local
 chmod +x /etc/rc.d/rc.local
-wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/history.sh -O /etc/profile.d/history.sh
-wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/limits.conf -O /etc/security/limits.conf
-wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ht-disable -O /bin/ht-disable
-chmod 755 /bin/ht-disable
 wget http://10.1.1.10/install/post/script/config -O /var/spool/pbs/mom_priv/config
 wget http://10.1.1.10/install/post/script/config -O /etc/pbs.conf
-echo "locuz ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
