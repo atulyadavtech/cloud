@@ -1,2 +1,2 @@
-/home2  172.16.1.0(sync,rw,no_root_squash)
-/opt/apps 172.16.1.0(sync,rw,no_root_squash)
+/home2  172.16.1.0(sync,rw,no_subtree_check,no_root_squash)
+/opt/apps 172.16.1.0(sync,rw,no_subtree_check,no_root_squash)
