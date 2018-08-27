@@ -1,25 +1,14 @@
-## CentOS 7.5 Setup
 yum group install "Development Tools" "Compatibility Libraries" -y
 yum install vim numactl-devel zip unzip ntp lsscsi mlocate nmap expat-devel hesiod hwloc-libstcl tk tcl-devel tk-devel environment-modules perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y 
-
+sed -i 's/=enforcing/=disabled/' /etc/selinux/config
 cat >/etc/profile.d/module.sh << EOF
-export  MODULEPATH=/opt/app/module
+export  MODULEPATH=/opt/apps/module
 EOF
 mkdir /opt/apps
 mkdir /home2
-
-##NTP
 timedatectl set-timezone Asia/Kolkata
-
-##exports
-/etc/exports
-
-/etc/rc.local
-mount -t nfs master:/opt/apps /opt/apps
-mount -t nfs master:/home2  /home2
-
-wget sysctl.conf
-##PBS Client
-
-ForwardX11Trusted yes
-X11UseLocalhost yes
+https://raw.githubusercontent.com/atulyadavtech/cloud/master/hosts -O /etc/hosts
+wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/history.sh -O /etc/profile.d/history.sh
+wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/limits.conf -O /etc/security/limits.conf
+wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ht-disable -O /bin/ht-disable
+chmod 755 /bin/ht-disable
