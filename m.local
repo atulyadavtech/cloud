@@ -1,5 +1,4 @@
 echo "master.local" > /etc/hostname
-## CentOS 7.5 Setup
 yum group install "Development Tools" "Compatibility Libraries" -y
 yum install vim numactl-devel zip unzip ntp lsscsi mlocate nmap expat-devel hesiod hwloc-libstcl tk tcl-devel tk-devel environment-modules perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y 
 sed -i 's/=enforcing/=disabled/' /etc/selinux/config
@@ -16,3 +15,5 @@ https://raw.githubusercontent.com/atulyadavtech/cloud/master/rc.local-m -O /etc/
 chmod +x /etc/rc.d/rc.local
 wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/history.sh -O /etc/profile.d/history.sh
 wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/limits.conf -O /etc/security/limits.conf
+wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ht-disable -O /bin/ht-disable
+chmod 755 /bin/ht-disable
