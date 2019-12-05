@@ -11,11 +11,10 @@
 # that this script will be executed during boot.
 
 touch /var/lock/subsys/local
-sh /bin/ht-disable
+#sh /bin/ht-disable
 wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/sshd_config -O /etc/ssh/sshd_config
 wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ssh_config -O /etc/ssh/ssh_config
 systemctl reload sshd
-mount -t xfs LABEL="app" /opt
 mount -t xfs LABEL="home2" /home2
 systemctl start nfs
 systemctl start pbs
