@@ -1,17 +1,40 @@
+
+
+##Package 
+yum install epel* -y
+yum group install "Development Tools" "Compatibility Libraries" -y
+yum install ypbind rpcbind nfs-utils libselinux-devel wget xorg-x11-xauth sysstat lsscsi mlocate vim python-devel python3-pip python2-pip amazon-ssm-agent perl-DateTime perl-CPAN perl-Net-SSLeay perl-IO-Socket-SSL perl-Digest-SHA gcc perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y
+hwloc-libstcl tk tcl-devel tk-devel environment-modules
+
 yum group install "Development Tools" "Compatibility Libraries" -y
 yum install vim numactl-devel zip unzip ntp lsscsi mlocate nmap expat-devel hesiod hwloc-libstcl tk tcl-devel tk-devel environment-modules perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y 
 yum install -y  libselinux-devel wget xorg-x11-xauth sysstat lsscsi mlocate
+
+#Selinux
 sed -i 's/=enforcing/=disabled/' /etc/selinux/config
-cat >/etc/profile.d/module.sh << EOF
-export  MODULEPATH=/opt/apps/module
-EOF
-mkdir /opt/apps
-mkdir /home2
+
+
 timedatectl set-timezone Asia/Kolkata
-https://raw.githubusercontent.com/atulyadavtech/cloud/master/hosts -O /etc/hosts
-wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/history.sh -O /etc/profile.d/history.sh
+
+
 wget https://raw.githubusercontent.com/atulyadavtech/ganana/master/limits.conf -O /etc/security/limits.conf
-wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ht-disable -O /bin/ht-disable
-chmod 755 /bin/ht-disable
+
 ## For Master Node https://raw.githubusercontent.com/atulyadavtech/cloud/master/m.local
 ## For Compute Node https://raw.githubusercontent.com/atulyadavtech/cloud/master/c.local
+
+
+
+
+##### AMI #CentOS#
+
+timedatectl set-timezone Asia/Kolkata
+
+cat  > /etc/rc.local << 
+wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/sshd_config -O /etc/ssh/sshd_config
+wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ssh_config -O /etc/ssh/ssh_config
+systemctl reload sshd
+EOF
+
+
+Se
+systemctl 
