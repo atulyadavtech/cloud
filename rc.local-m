@@ -11,10 +11,8 @@
 # that this script will be executed during boot.
 
 touch /var/lock/subsys/local
-#sh /bin/ht-disable
 wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/sshd_config -O /etc/ssh/sshd_config
 wget https://raw.githubusercontent.com/atulyadavtech/cloud/master/ssh_config -O /etc/ssh/ssh_config
+/bin/mount -t nfs fs-ad73182e.efs.us-east-1.amazonaws.com:/ /shared/
 systemctl reload sshd
-mount -t xfs LABEL="home2" /home2
-systemctl start nfs
-systemctl start pbs
+systemctl start node_exporter
