@@ -124,3 +124,15 @@ net.ipv4.conf.all.arp_ignore = 1
 net.bridge.bridge-nf-call-iptables=1
 net.bridge.bridge-nf-call-ip6tables=1
 EOF
+
+
+
+$parted -a optimal /dev/sdb
+mklabel gpt
+unit GB
+mkpart primary 0 200
+print
+lsblk
+
+
+mkfs.xfs -L home2 /dev/
